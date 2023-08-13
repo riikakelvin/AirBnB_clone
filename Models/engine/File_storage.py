@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-"""
-File storage class for storing objects in JSON format.
-"""
+'''
+File storage class stores objects in JSON format.
+'''
 
 import datetime
 import os
@@ -10,34 +10,34 @@ import json
 
 
 class FileStorage:
-    """
+    '''
     A class that serializes instances to a JSON file and deserializes JSON
     file to instances.
-    """
+    '''
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """
+        '''
         Returns the dictionary __objects.
-        """
+        '''
         return FileStorage.__objects
 
     def new(self, obj):
-        """
+        '''
         Sets the obj in __objects with key <obj class name>.id
 
         Args:
             obj (BaseModel): The object to set in __objects.
-        """
+        '''
         if obj is not None:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             FileStorage.__objects[key] = obj
 
     def save(self):
-        """
+        '''
         Serializes __objects to the JSON file.
-        """
+        '''
         file_path = FileStorage.__file_path
         obj = {key: value.to_dict()
                for key, value in FileStorage.__objects.items()}
@@ -45,14 +45,14 @@ class FileStorage:
             json.dump(obj, obj_file)
 
     def classes(self):
-        """
-        Retrieve a dictionary mapping valid class names
-        to their corresponding class references.
+        '''
+        Retrieves a dictionary mapping valid class names
+        to their respective class references.
 
         Returns:
             dict: A dictionary containing the valid classes
             and their references
-        """
+        '''
         from models.base_model import BaseModel
         from models.user import User
         from models.state import State
@@ -73,18 +73,18 @@ class FileStorage:
         return classes
 
     def reload(self):
-        """
-        Deserializes the JSON file into __objects.
+        '''
+        De-serializes the JSON file into __objects.
 
-        This method reads the JSON file, deserializes its contents, and
-        assigns the loaded objects to the __objects dictionary.
+        The method reads the JSON file, deserializes its contents, and
+        assigns loaded objects to the __objects dictionary.
 
         If the JSON file does not exist, is empty, or an error occurs during
         deserialization, this method does nothing.
 
-        Returns:
+        Return:
             None
-        """
+        '''
         if not os.path.isfile(FileStorage.__file_path):
             return
 
@@ -102,10 +102,10 @@ class FileStorage:
             FileStorage.__objects = {}
 
     def to_dict(self):
-        """
+        '''
         Serializes the objects(JSON data in this case) in storage
         to a dictionary.
-        """
+        '''
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
@@ -113,9 +113,9 @@ class FileStorage:
         return obj_dict
 
     def from_dict(self, obj_dict):
-        """
+        '''
         Deserializes the dictionary into objects in storage.
-        """
+        '''
         class_dict = self.classes()
         for key, value in obj_dict.items():
             class_name = value['__class__']
@@ -125,9 +125,9 @@ class FileStorage:
                 FileStorage.__objects[key] = obj
 
     def attributes(self):
-        """
+        '''
         Returns the valid attributes and their types for classname.
-        """
+        '''
         attributes = {
             "BaseModel": {
                 "id": str,
