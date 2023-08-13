@@ -2,7 +2,7 @@
 
 ## Project Description
 
-The AirBnB Clone Console is the first step towards building a full web application: the AirBnB clone. This initial stage is crucial as it forms the foundation for subsequent projects, such as HTML/CSS templating, database storage, API development, and front-end integration.
+The AirBnB Clone Console is th initial step towards building a full web application: the AirBnB clone. :)This initial stage is crucial as it forms the foundation for subsequent projects, such as HTML/CSS templating, database storage, API development, and front-end integration.
 
 Each task in the project is interlinked and contributes to the following objectives:
 
@@ -78,7 +78,7 @@ EOF  help  quit
 $
 ```
 
-### Commands currently available:
+### Commands:
 
 | Command | Syntax |
 | ------- | ------- |
@@ -96,28 +96,28 @@ This table format presents the commands in a clear and organized manner, making 
 
 ## Models
 
-The `models` folder contains all the classes used in this project.
+The `models` directory contains all the classes used in this project.
 
 | File         | Description                               | Attributes                                                                                             |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | base_model.py | BaseModel class for all other classes     | id, created_at, updated_at                                                                             |
-| user.py      | User class for storing user information    | email, password, first_name, last_name                                                                 |
-| amenity.py   | Amenity class for storing amenity information | name                                                                                                   |
-| city.py      | City class for storing location information | state_id, name                                                                                         |
-| state.py     | State class for storing location information | name                                                                                                   |
-| place.py     | Place class for storing accommodation information | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids |
-| review.py    | Review class for storing user/host review information | place_id, user_id, text                                                                           |
+| user.py      | User class stores user information    | email, password, first_name, last_name                                                                 |
+| amenity.py   | Amenity class stores amenity information  i.e.| name                                                                                                   |
+| city.py      | City class stores location information i.e. | state_id, name                                                                                         |
+| state.py     | State class stores location information | name                                                                                                   |
+| place.py     | Place class stores accommodation information i.e. | city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude, amenity_ids |
+| review.py    | Review class stores user/host review information i.e. | place_id, user_id, text                                                                           |
 
 ## File Storage
-The **`engine`** folder manages the serialization and deserialization of data using the JSON format.
+The **`engine`** folder manages both serialization and deserialization of data using the JSON format.
 
 The **`file_storage.py`** file defines a FileStorage class with methods that follow the following flow: **`<object> -> to_dict() -> <dictionary> -> JSON dump -> <json string> -> FILE -> <json string> -> JSON load -> <dictionary> -> <object>`**
 
 The **`__init__.py`** file instantiates the FileStorage class as **`storage`** and calls the **`reload()`** method on that instance. This automatically reloads the serialized data during initialization.
 
 ## Tests
-All code is thoroughly tested using the unittest module. The tests for the classes are located in the test_models folder.
+All code is tested using the unittest module. The tests for the classes are in the test_models folder.
 
 ## Authors
-* Kelvin Rika riikakelvin2@gmail.com
+* Kelvin Rika - riikakelvin2@gmail.com
 * Etomchukwu Oguejiofor - etoogueji@gmail.com
