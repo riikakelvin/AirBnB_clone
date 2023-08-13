@@ -119,5 +119,5 @@ The **`__init__.py`** file instantiates the FileStorage class as **`storage`** a
 All code is thoroughly tested using the unittest module. The tests for the classes are located in the test_models folder.
 
 ## Authors
-* Emeka Emodi - emodiemeka@gmail.com
+* Kelvin Rika riikakelvin2@gmail.com
 * Etomchukwu Oguejiofor - etoogueji@gmail.com
