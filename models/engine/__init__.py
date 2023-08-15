@@ -1,9 +1,8 @@
+#!/usr/bin/python3
 '''
-Defines a module that defines a unique FileStorage
-instance.
+Initializes for models module
 '''
 from models.engine.file_storage import FileStorage
-
 
 storage = FileStorage()
 storage.reload()
